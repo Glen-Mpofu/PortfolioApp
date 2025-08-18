@@ -10,8 +10,9 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-    Playright: require('../assets/fonts/PlaywriteMXGuides-Regular.ttf'), 
-    ChelaOne: require('../assets/fonts/ChelaOne-Regular.ttf')
+    Playright: require('../assets/fonts/PlaywriteMXGuides-Regular.ttf'),
+    ChelaOne: require('../assets/fonts/ChelaOne-Regular.ttf'),
+    PTSans: require('../assets/fonts/PTSansNarrow-Regular.ttf'),
   });
 
   if (!loaded) {
