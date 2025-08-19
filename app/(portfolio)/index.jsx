@@ -5,7 +5,7 @@ import SocialIcons from 'react-native-vector-icons/FontAwesome5';
 
 const app = () => {
   return (
-    <View styles={styles.container}>
+    <View style={styles.container}>
       
       <Text style={styles.heading}>Porfolio</Text>
       
@@ -58,12 +58,12 @@ const app = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column'
+    flexDirection: 'column',
+    marginTop: 50
   },
   heading: {
     fontFamily: 'ChelaOne',
     fontSize: 42,
-    fontWeight: 'bold',
     textAlign: 'center',
     color: '#2D4B1B'
   },
@@ -74,13 +74,11 @@ const styles = StyleSheet.create({
     alignContent: 'center',
   },
   row: {
-    flex: 1,
     flexDirection: 'row', 
     alignSelf: 'center'
   },
   column: {
     paddingTop: 20,
-    flex: 1,
     flexDirection: 'column',
   },
   regText: {
@@ -101,7 +99,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   }, 
   linksRow: {
-    flex: 1,
     flexDirection: 'row',
     alignSelf: 'center'
   },
@@ -118,10 +115,9 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   workLink: {
-    flex: 1,
     flexDirection: 'row',
     alignSelf: 'center',
-    margin: 20
+    margin: 20,
   }
 })
 export default app
