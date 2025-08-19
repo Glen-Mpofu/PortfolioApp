@@ -6,9 +6,9 @@ import SocialIcons from 'react-native-vector-icons/FontAwesome5';
 const app = () => {
   return (
     <View style={styles.container}>
-      
+
       <Text style={styles.heading}>Porfolio</Text>
-      
+
       <View>
         <View style={styles.row}>
           <Image source={require('../../assets/images/tshepo.jpg')} style={styles.image} />
@@ -22,7 +22,7 @@ const app = () => {
         </View>
       </View>
 
-      <View style = {styles.card}>
+      <View style={styles.card}>
         <Text style={styles.regText}>
           Born and raised in Hillbrow South Africa I've learned to be creative in everything that i do. I don't contribute my energy to projects i don't see as creative.
 
@@ -32,9 +32,9 @@ const app = () => {
         </Text>
       </View>
 
-      <View style = {styles.linksRow}>
+      <View style={styles.linksRow}>
         <Link href={'https://www.linkedin.com/in/tshepo-mpofu-6b37a3237/'}>
-          <SocialIcons name = "linkedin" size = {30} style = {styles.icon}/>   
+          <SocialIcons name="linkedin" size={30} style={styles.icon} />
         </Link>
 
         <Link href={'https://www.instagram.com/i.am.mgt/'}>
@@ -42,13 +42,13 @@ const app = () => {
         </Link>
 
         <Link href={'https://github.com/Glen-Mpofu'}>
-          <SocialIcons name = "github" size={30} style ={styles.icon}/>
+          <SocialIcons name="github" size={30} style={styles.icon} />
         </Link>
       </View>
 
-      <Link href={'/work'} style = {styles.workLink} asChild>
+      <Link href={'/work'} style={styles.workLink} asChild>
         <Pressable style={styles.button}>
-          <Text style = {styles.otherText}>Work</Text>
+          <Text style={styles.otherText}>Work</Text>
         </Pressable>
       </Link>
     </View>
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     alignContent: 'center',
   },
   row: {
-    flexDirection: 'row', 
+    flexDirection: 'row',
     alignSelf: 'center'
   },
   column: {
@@ -91,13 +91,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#4B391B'
   },
-  card:{
+  card: {
     height: 150,
     width: 300,
     justifyContent: 'center',
     textAlign: 'center',
     alignSelf: 'center',
-  }, 
+  },
   linksRow: {
     flexDirection: 'row',
     alignSelf: 'center'
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     color: '#4B5320'
   },
-  button:{
+  button: {
     width: 50,
     height: 50,
     backgroundColor: 'black',

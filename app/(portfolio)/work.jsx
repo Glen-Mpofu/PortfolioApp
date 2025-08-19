@@ -1,5 +1,6 @@
 import React from 'react'
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native'
+import projects from '../(portfolio)/data'
 /*
   AutoPrintR
   RideWise
@@ -7,23 +8,29 @@ import { Image, ScrollView, StyleSheet, Text, View } from 'react-native'
   My Virtual Closet
   
 */
+
 const work = () => {
   return (
     //use a loop to display all the projects
-    <ScrollView style = {styles.container}>
-      <Text style = {styles.heading}>Projects</Text>
+    <ScrollView style={styles.container}>
+      <Text style={styles.heading}>Projects</Text>
 
-      <View style={styles.projectsRow}>
-        <View style = {styles.card}>         
-          <Text style = {styles.cardHeading}>Project Name</Text>
-          <Text style = {styles.cardText}>Project Description</Text>
+      <ScrollView style={styles.projectsRow} horizontal={true}
+        contentContainerStyle={{ alignItems: 'center', justifyContent: 'center', flexGrow: 1 }} showsHorizontalScrollIndicator={false}>
 
-          <Image source={require('../../assets/images/AutoPrintR Logo Design.png')} style = {styles.image}/>
-        </View>        
-      </View>  
+        {projects.map((project, index) => (
+          <View style={styles.card}>
+            <Text style={styles.cardHeading}>{project.title}</Text>
+            <Text style={styles.cardText}>{project.description}</Text>
+
+            <Image source={project.image} style={styles.image} />
+          </View>
+        ))}
+
+      </ScrollView>
 
       <View>
-        <Text style = {styles.techStackHeading}>Tech Stack Summary</Text>     
+        <Text style={styles.techStackHeading}>Tech Stack Summary</Text>
 
         <View>
           <Text style={styles.techStackText}>Java</Text>
@@ -43,22 +50,22 @@ const work = () => {
 }
 
 const styles = StyleSheet.create({
-  container:{
+  container: {
     flex: 1,
     flexDirection: 'column',
     borderStyle: 'dotted',
-    borderColor: '#36454F', 
+    borderColor: '#36454F',
     borderWidth: 2,
     paddingTop: 50
-  }, 
-  projectsRow:{
+  },
+  projectsRow: {
     flexDirection: 'row',
-  }, 
+  },
   card: {
     height: 300,
     width: 300,
     backgroundColor: 'grey',
-    borderRadius: 50, 
+    borderRadius: 50,
     margin: 20,
     backgroundColor: '#C0C0C0'
   },
@@ -68,31 +75,31 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#2D4B1B'
   },
-  cardHeading:{
+  cardHeading: {
     textAlign: 'center',
     fontFamily: 'Lobster',
     fontSize: 20,
     color: '#1B2D4B'
   },
-  cardText:{
+  cardText: {
     textAlign: 'center',
     fontFamily: 'Lobster',
     fontSize: 15,
     color: '#1B2D4B'
   },
-  techStackHeading:{
+  techStackHeading: {
     fontFamily: 'PirataOne',
-    color: '#1B454B', 
+    color: '#1B454B',
     fontSize: 20,
     textAlign: 'center'
   },
-  techStackText:{
+  techStackText: {
     fontFamily: 'PirataOne',
     color: '#1B454B',
     fontSize: 15,
     textAlign: 'center'
   },
-  image:{
+  image: {
     width: 200,
     height: 200,
     borderRadius: 20,
