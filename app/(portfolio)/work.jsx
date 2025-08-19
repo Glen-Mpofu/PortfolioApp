@@ -1,7 +1,7 @@
-import { View, Text } from 'react-native'
 import React from 'react'
+import { Text, View } from 'react-native'
 
-const skills = () => {
+const work = () => {
   return (
     <View>
       <Text>skills</Text>
@@ -9,4 +9,4 @@ const skills = () => {
   )
 }
 
-export default skills
+export default work

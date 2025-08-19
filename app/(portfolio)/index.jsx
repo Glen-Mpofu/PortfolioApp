@@ -1,6 +1,6 @@
 import { Link } from 'expo-router';
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import SocialIcons from 'react-native-vector-icons/FontAwesome5';
 
 const app = () => {
@@ -34,17 +34,23 @@ const app = () => {
 
       <View style = {styles.linksRow}>
         <Link href={'https://www.linkedin.com/in/tshepo-mpofu-6b37a3237/'}>
-          <SocialIcons name = "linkedin" size = {30} color = "blue" style = {styles.icon}/>   
+          <SocialIcons name = "linkedin" size = {30} style = {styles.icon}/>   
         </Link>
 
         <Link href={'https://www.instagram.com/i.am.mgt/'}>
-          <SocialIcons name="instagram" size={30} color="#C13584" style={styles.icon} />
+          <SocialIcons name="instagram" size={30} style={styles.icon} />
         </Link>
 
         <Link href={'https://github.com/Glen-Mpofu'}>
-          <SocialIcons name = "github" size={30} color="black" style ={styles.icon}/>
+          <SocialIcons name = "github" size={30} style ={styles.icon}/>
         </Link>
       </View>
+
+      <Link href={'/work'} style = {styles.workLink} asChild>
+        <Pressable style={styles.button}>
+          <Text style = {styles.otherText}>Work</Text>
+        </Pressable>
+      </Link>
     </View>
   )
 }
@@ -58,14 +64,14 @@ const styles = StyleSheet.create({
     fontFamily: 'ChelaOne',
     fontSize: 42,
     fontWeight: 'bold',
-    textAlign: 'center'
+    textAlign: 'center',
+    color: '#2D4B1B'
   },
   image: {
     width: 100,
     height: 100,
     borderRadius: 50,
     alignContent: 'center',
-
   },
   row: {
     flex: 1,
@@ -80,6 +86,12 @@ const styles = StyleSheet.create({
   regText: {
     fontFamily: 'PTSans',
     textAlign: 'center',
+    color: '#4B391B'
+  },
+  otherText: {
+    fontFamily: 'ChelaOne',
+    textAlign: 'center',
+    color: '#4B391B'
   },
   card:{
     height: 150,
@@ -87,7 +99,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     textAlign: 'center',
     alignSelf: 'center',
-    backgroundColor: 'brown',
   }, 
   linksRow: {
     flex: 1,
@@ -96,6 +107,21 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginHorizontal: 5,
+    color: '#4B5320'
   },
+  button:{
+    width: 50,
+    height: 50,
+    backgroundColor: 'black',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 50,
+  },
+  workLink: {
+    flex: 1,
+    flexDirection: 'row',
+    alignSelf: 'center',
+    margin: 20
+  }
 })
 export default app
