@@ -13,6 +13,8 @@ export default function RootLayout() {
     Playright: require('../assets/fonts/PlaywriteMXGuides-Regular.ttf'),
     ChelaOne: require('../assets/fonts/ChelaOne-Regular.ttf'),
     PTSans: require('../assets/fonts/PTSansNarrow-Regular.ttf'),
+    Lobster: require('../assets/fonts/Lobster-Regular.ttf'),
+    PirataOne: require('../assets/fonts/PirataOne-Regular.ttf')
   });
 
   if (!loaded) {
