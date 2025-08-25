@@ -1,0 +1,58 @@
+{
+  "expo": {
+    "name": "Portfolio",
+    "slug": "PortfolioApp",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/app-logo.jpeg",
+    "scheme": "portfolioapp",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/images/app-logo.jpeg",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.glenmpofu.PortfolioApp",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/app-logo.jpeg"
+      },
+      "edgeToEdgeEnabled": true,
+      "package": "com.glenmpofu.PortfolioApp"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "adaptive",
+      "favicon": "./assets/images/weblogo.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/app-logo.jpeg",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ],
+      "expo-font"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "33b77dd9-37f8-41de-aeda-39fa89080ed0"
+      }
+    }
+  }
+}
