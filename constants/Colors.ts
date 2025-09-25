@@ -17,8 +17,8 @@ export const Colors = {
     borderColor: 'black'
   },
   dark: {        
-    heading: '#F7F8EC',
-    text: '#EADDCA',
+    heading: '#2D4B1B',
+    text: '#4B391B',
     background: 'black',
     tint: tintColorLight,
     icon: '#828b7dff',

@@ -7,6 +7,8 @@ import { StatusBar } from 'expo-status-bar';
 import { Colors } from '../constants/Colors';
 import { ProjectProvider } from "./(portfolio)/projectcontext";
 
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const theme = Colors[colorScheme] ?? Colors.light;
@@ -23,11 +25,12 @@ export default function RootLayout() {
   if (!loaded) return null;
 
   return (
+    <GestureHandlerRootView>
     <ProjectProvider>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>        
         <Stack screenOptions={{
           headerTitleAlign: 'center',
-          headerTintColor: '#8d9ba5ff',
+          headerTintColor: '#4B391B',
           headerTitleStyle: {
             color: theme.paragraphText,
             fontSize: 42,
@@ -44,5 +47,6 @@ export default function RootLayout() {
         <StatusBar style="auto" /> {/* this allows for the status bar to change too when moving from light to dark themes */}
       </ThemeProvider>
     </ProjectProvider>
+    </GestureHandlerRootView>
   );
 }

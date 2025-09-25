@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/images/app-logo.jpeg",
     "scheme": "portfolioapp",
-    "userInterfaceStyle": "automatic",
+    "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/images/app-logo.jpeg",
       "resizeMode": "contain",

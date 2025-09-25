@@ -5,6 +5,10 @@ import React from 'react';
 import { Image, Pressable, ScrollView, StyleSheet, View, useColorScheme } from 'react-native';
 import { useProjectContext } from "../(portfolio)/projectcontext";
 import projects from '../(portfolio)/projects';
+
+
+//snap carousel
+
 /*
   AutoPrintR
   RideWise
@@ -25,10 +29,9 @@ const work = () => {
         <ThemedText variant = "paragraphText" style={styles.cardHeading}>NB. These are not the only projects i've done. There's plenty more but these are the ones i'm most proud of!!</ThemedText>
         <ScrollView style={styles.projectsRow} horizontal={true}
           showsHorizontalScrollIndicator={false} contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}
-        >
+        > 
           {projects.map((project, index) => (
-
-            <Link href={project.page} style={styles.buttonLink} onPress={() => setSelectedProjectIndex(index)}>
+            <Link key = {project.title+index} href={project.page} style={styles.buttonLink} onPress={() => setSelectedProjectIndex(index)}>
               <View style={styles.card}>
                 <ThemedText variant = "paragraphText" style={styles.cardHeading} >{project.title}</ThemedText>
                 <ThemedText variant = "paragraphText" style={styles.cardText}>{project.description}</ThemedText>
@@ -36,8 +39,7 @@ const work = () => {
               </View>
             </Link>
             
-          ))}
-
+          ))}          
         </ScrollView>
           
         <View>
@@ -63,6 +65,7 @@ const work = () => {
           </Pressable>
         </Link>
 
+
         </ScrollView>
   )
 }
@@ -70,9 +73,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    borderStyle: 'dotted',
-    borderColor: '#1B454B',
-    borderWidth: 2,
     paddingTop: 50,
   },
   projectsRow: {
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
   heading: {
     fontFamily: 'ChelaOne',
     fontSize: 42,
-    textAlign: 'center'
+    textAlign: 'center',
   },
   cardHeading: {
     textAlign: 'center',

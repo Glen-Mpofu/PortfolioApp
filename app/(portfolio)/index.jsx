@@ -1,37 +1,41 @@
+import ThemedText from '@/components/ThemedText';
 import ThemedView from '@/components/ThemedView';
 import { Link } from 'expo-router';
 import React from 'react';
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, StyleSheet, View } from 'react-native';
 import SocialIcons from 'react-native-vector-icons/FontAwesome5';
+
+import { Marquee } from "@animatereactnative/marquee";
 
 const app = () => {
   return (
     <ThemedView style={styles.container}>
       
-      <Text style={styles.heading}>Porfolio</Text>      
-      <View>
+      <ThemedText style={styles.heading}>Porfolio</ThemedText>      
+      <ThemedView>
         <View style={styles.row}>
           <Image source={require('../../assets/images/tshepo.jpg')} style={styles.image} />
 
-          <View style={styles.column}>
-            <Text style={styles.regText}>Tshepo</Text>
-            <Text style={styles.regText}>21</Text>
-            <Text style={styles.regText}>Black South African</Text>
-          </View>
+          <ThemedView style={styles.column}>
+            <ThemedText style={[styles.regText, { fontSize: 20}]}>Tshepo Glen Mpofu</ThemedText>
+            <ThemedText style={styles.regText}>21</ThemedText>
+            <ThemedText style={styles.regText}>Black South African</ThemedText>
+            <ThemedText style={styles.regText}>3rd Year Student at TUT</ThemedText>
+          </ThemedView>
         </View>
-      </View>
+      </ThemedView>
 
-      <View style = {styles.card}>
-        <Text style={styles.regText}>
+      <ThemedView style = {styles.card}>
+        <ThemedText style={styles.regText}>
           Born and raised in Hillbrow South Africa I've learned to be creative in everything that i do. I don't contribute my energy to projects i don't see as creative.
 
           Speaking of creativity, i make music :) and i think that side of moi helps me tap into more outlandish or eclectic programming project ideas.
 
           Gosh!! i know you resent long texts so enough chatter, look no further than below for my projects and social links
-        </Text>
-      </View>
+        </ThemedText>
+      </ThemedView>
 
-      <View style = {styles.linksRow}>
+      <ThemedView style = {styles.linksRow}>
         <Link href={'https://www.linkedin.com/in/tshepo-mpofu-6b37a3237/'}>
           <SocialIcons name = "linkedin" size = {30} style = {styles.icon}/>   
         </Link>
@@ -43,13 +47,21 @@ const app = () => {
         <Link href={'https://github.com/Glen-Mpofu'}>
           <SocialIcons name = "github" size={30} style ={styles.icon}/>
         </Link>
-      </View>
+      </ThemedView>
 
       <Link href={'/work'} style = {styles.workLink} asChild>
         <Pressable style={styles.button}>
-          <Text style = {styles.otherText}>Work</Text>
+          <ThemedText style = {styles.buttonText}>Work</ThemedText>
         </Pressable>
       </Link>
+
+      <Marquee spacing={20} speed={1}>
+        <ThemedView style={{flexDirection:"row"}}>
+          <ThemedText style = {{color: "red"}}>Breaking News!</ThemedText>
+          <ThemedText>Best programmer here. My Github has a bunch of projects you can reference that are not included in my portfolio. Feel free to browser around there and download whatever. The Link is above!</ThemedText>
+        </ThemedView>
+      </Marquee>
+
     </ThemedView>
   )
 }
@@ -65,12 +77,11 @@ const styles = StyleSheet.create({
     fontFamily: 'ChelaOne',
     fontSize: 42,
     textAlign: 'center',
-    color: '#2D4B1B'
   },
   image: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+    width: 200,
+    height: 200,
+    borderRadius: 200,
     alignContent: 'center',
   },
   row: {
@@ -80,16 +91,16 @@ const styles = StyleSheet.create({
   column: {
     paddingTop: 20,
     flexDirection: 'column',
+    justifyContent: "center"
   },
   regText: {
     fontFamily: 'PTSans',
     textAlign: 'center',
     color: '#4B391B'
   },
-  otherText: {
+  buttonText: {
     fontFamily: 'ChelaOne',
     textAlign: 'center',
-    color: '#4B391B'
   },
   card:{
     height: 150,
@@ -109,7 +120,7 @@ const styles = StyleSheet.create({
   button:{
     width: 50,
     height: 50,
-    backgroundColor: 'black',
+    
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 50,
