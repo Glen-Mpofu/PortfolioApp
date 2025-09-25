@@ -15,7 +15,7 @@ import projects from '../(portfolio)/projects';
   A Picture of Heaven
   My Virtual Closet  
 */
-  
+
 
 const work = () => {
   const { setSelectedProjectIndex } = useProjectContext();
@@ -23,50 +23,50 @@ const work = () => {
   const theme = Colors[colorScheme] ?? Colors.light;
 
   return (
-      <ScrollView style={styles.container}>
-        <ThemedText variant = "paragraphText" style={styles.heading} >Projects</ThemedText>
+    <ScrollView style={styles.container}>
+      <ThemedText variant="paragraphText" style={styles.heading} >Projects</ThemedText>
 
-        <ThemedText variant = "paragraphText" style={styles.cardHeading}>NB. These are not the only projects i've done. There's plenty more but these are the ones i'm most proud of!!</ThemedText>
-        <ScrollView style={styles.projectsRow} horizontal={true}
-          showsHorizontalScrollIndicator={false} contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}
-        > 
-          {projects.map((project, index) => (
-            <Link key = {project.title+index} href={project.page} style={styles.buttonLink} onPress={() => setSelectedProjectIndex(index)}>
-              <View style={styles.card}>
-                <ThemedText variant = "paragraphText" style={styles.cardHeading} >{project.title}</ThemedText>
-                <ThemedText variant = "paragraphText" style={styles.cardText}>{project.description}</ThemedText>
-                <Image source={project.image} style={styles.image} />
-              </View>
-            </Link>
-            
-          ))}          
-        </ScrollView>
-          
+      <ThemedText variant="paragraphText" style={styles.cardHeading}>NB. These are not the only projects i've done. There's plenty more but these are the ones i'm most proud of!!</ThemedText>
+      <ScrollView style={styles.projectsRow} horizontal={true}
+        showsHorizontalScrollIndicator={false} contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}
+      >
+        {projects.map((project, index) => (
+          <Link key={project.title + index} href={project.page} style={styles.buttonLink} onPress={() => setSelectedProjectIndex(index)}>
+            <View style={styles.card}>
+              <ThemedText variant="paragraphText" style={styles.cardHeading} >{project.title}</ThemedText>
+              <ThemedText variant="paragraphText" style={styles.cardText}>{project.description}</ThemedText>
+              <Image source={project.image} style={styles.image} />
+            </View>
+          </Link>
+
+        ))}
+      </ScrollView>
+
+      <View>
+        <ThemedText variant="paragraphText" style={styles.techStackHeading}>Tech Stack Summary</ThemedText>
         <View>
-          <ThemedText variant = "paragraphText" style={styles.techStackHeading}>Tech Stack Summary</ThemedText>
-          <View>
-            <ThemedText variant = "paragraphText" style={styles.techStackText}>Java</ThemedText>
-            <ThemedText variant = "paragraphText" style={styles.techStackText}>JavaFX</ThemedText>
-            <ThemedText variant = "paragraphText" style={styles.techStackText}>HTML</ThemedText>
-            <ThemedText variant = "paragraphText" style={styles.techStackText}>React Native</ThemedText>
-            <ThemedText variant = "paragraphText" style={styles.techStackText}>React.js</ThemedText>
-            <ThemedText variant = "paragraphText" style={styles.techStackText}>Kotlin</ThemedText>
-            <ThemedText variant = "paragraphText" style={styles.techStackText}>CSS</ThemedText>
-            <ThemedText variant = "paragraphText" style={styles.techStackText}>SQL/PLSQL/SQL Lite</ThemedText>
-            <ThemedText variant = "paragraphText" style={styles.techStackText}>MongoDB Basics</ThemedText>
-            <ThemedText variant = "paragraphText" style={styles.techStackText}>Postgresql Basics</ThemedText>
-            <ThemedText variant = "paragraphText" style={styles.techStackText}>Python Basics</ThemedText>
-          </View>
+          <ThemedText variant="paragraphText" style={styles.techStackText}>Java</ThemedText>
+          <ThemedText variant="paragraphText" style={styles.techStackText}>JavaFX</ThemedText>
+          <ThemedText variant="paragraphText" style={styles.techStackText}>HTML</ThemedText>
+          <ThemedText variant="paragraphText" style={styles.techStackText}>React Native</ThemedText>
+          <ThemedText variant="paragraphText" style={styles.techStackText}>React.js</ThemedText>
+          <ThemedText variant="paragraphText" style={styles.techStackText}>Kotlin</ThemedText>
+          <ThemedText variant="paragraphText" style={styles.techStackText}>CSS</ThemedText>
+          <ThemedText variant="paragraphText" style={styles.techStackText}>SQL/PLSQL/SQL Lite</ThemedText>
+          <ThemedText variant="paragraphText" style={styles.techStackText}>MongoDB Basics</ThemedText>
+          <ThemedText variant="paragraphText" style={styles.techStackText}>Postgresql Basics</ThemedText>
+          <ThemedText variant="paragraphText" style={styles.techStackText}>Python Basics</ThemedText>
         </View>
+      </View>
 
-        <Link href={"/"} style = {styles.buttonLink} asChild>
-          <Pressable style={styles.button}> 
-            <ThemedText variant = "paragraphText" style = {styles.techStackText}>Home</ThemedText>
-          </Pressable>
-        </Link>
+      <Link href={"/"} style={styles.buttonLink} asChild>
+        <Pressable style={styles.button}>
+          <ThemedText variant="paragraphText" style={styles.techStackText}>Home</ThemedText>
+        </Pressable>
+      </Link>
 
 
-        </ScrollView>
+    </ScrollView>
   )
 }
 const styles = StyleSheet.create({
