@@ -1,16 +1,24 @@
 import ThemedText from '@/components/ThemedText';
 import ThemedView from '@/components/ThemedView';
+import { useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { Image, Modal, Pressable, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
-import { useProjectContext } from "../(portfolio)/projectcontext";
 import projects from "../(portfolio)/projects";
-
-const projectpage = () => {
-    const { selectedProjectIndex } = useProjectContext();
-    const selectedProject = projects[selectedProjectIndex]
-
+const projectpage = () => {   
     const [modalVisible, setModalVisible] = useState(false)
     const [selectedImage, setSelectedImage] = useState(null)
+
+    const {projectIndex} = useLocalSearchParams();
+    const index = parseInt(projectIndex);
+    const selectedProject = projects[index]
+
+    if (typeof projectIndex !== 'string' || isNaN(index) || !selectedProject) {
+      return (
+        <ThemedView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <ThemedText variant='paragraphText'>No project selected. Please go back and choose a project.</ThemedText>
+        </ThemedView>
+      );
+    }
 
     const openImageModal = (image) => {
         setSelectedImage(image);

@@ -1,7 +1,7 @@
 import ThemedText from '@/components/ThemedText';
 import ThemedView from '@/components/ThemedView';
-import { Link } from 'expo-router';
-import { Image, Platform, Pressable, StyleSheet, View } from 'react-native';
+import { Link, useRouter } from 'expo-router';
+import { Image, Platform, Pressable, StyleSheet, useColorScheme, View } from 'react-native';
 import SocialIcons from 'react-native-vector-icons/FontAwesome5';
 
 import { Marquee } from "@animatereactnative/marquee";
@@ -10,6 +10,7 @@ import { FlatList, ScrollView } from 'react-native';
 import { useProjectContext } from "../(portfolio)/projectcontext";
 import projects from '../(portfolio)/projects';
 
+import { Colors } from '@/constants/Colors';
 import { Dimensions } from 'react-native';
 import Animated, { Extrapolation, interpolate, useAnimatedScrollHandler, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 
@@ -63,6 +64,10 @@ const app = () => {
   const isWeb = Platform.OS === "web"
   const FlatListComponent = isWeb ? FlatList : Animated.FlatList
 
+  const colorScheme = useColorScheme();
+  const theme = Colors[useColorScheme] ?? Colors.light
+  const router = useRouter();
+
   return (
     <ThemedView style={styles.container}>
       <ScrollView>
@@ -106,11 +111,9 @@ const app = () => {
                 horizontal={true}
               >                  
                   {projects.map((item, index) => (
-                   <Link key={item.title + index} href={item.page} asChild>
-                     <Pressable onPress={() => setSelectedProject(index)}>
+                     <Pressable onPress={() => {router.push({ pathname: "/projectpage", params: {projectIndex: index.toString()}})} }>
                        <CarouselItem item={item} index={index} scrollX={scrollX} />
                      </Pressable>
-                   </Link>
                  ))}                                      
           </Animated.ScrollView>
         </ThemedView>            
@@ -137,7 +140,7 @@ const app = () => {
         <Marquee spacing={20} speed={1} style={{ position: "absolute", bottom: 0, width: "100%" }}>
           <ThemedView style={{ flexDirection: "row", paddingBottom: Platform.OS === "android" ? 10 : 0 }}>
             <ThemedText style={{ color: "red" }}>Eyes down here!</ThemedText>
-            <ThemedText style={{ color: "black" }}>What do you call a programmer that get's invited to an all exclusive party? A Very Important Programmer. Nice! I knew you had brains</ThemedText>
+            <ThemedText style={{ color: theme.text }}>What do you call a programmer that get's invited to an all exclusive party? A Very Important Programmer. Nice! I knew you had brains</ThemedText>
           </ThemedView>
         </Marquee>
       
