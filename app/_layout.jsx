@@ -32,7 +32,7 @@ export default function RootLayout() {
           headerTitleAlign: 'center',
           headerTintColor: '#4B391B',
           headerTitleStyle: {
-            color: theme.paragraphText,
+            color: theme.text,
             fontSize: 42,
             fontFamily: 'PirataOne',
           },

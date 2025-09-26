@@ -63,10 +63,10 @@ let projects = [{
 {
    title: "SyncR",
    image: require('../../assets/images/SyncRLogo.png'),
-   description: "Media Player, Song Guess Game and soon to have an Arcade Game Desktop Application. This App is tailored for my music :)",
+   description: "Folder Syncing App that keeps 2 folders of your choice mirroring each other or one folder mirroring the Parent folder.:)",
    page: '/projectpage',
-   fullAppDescription: "Media Player, Song Guess Game and soon to have an Arcade Game Desktop Application. This App is tailored for my music :). Written in Java and JavaFX",
-   features: ["Guess the Song Game", "Media Player", "Arcade Game(beta)"],
+   fullAppDescription: "The app came about when I and my colleagues were looking for an app that can handle huge amounts of data and move it from A to B and we couldn't really find an app dedicated to that strictly and timely. Most of them required manual Starting. SyncR basically Syncs the selected folders until you stop the sync. The syncs are triggered by events on the the Parent folder or both if its a two way sync",
+   features: ["Two Way Folder Sync", "One Way Folder Sync"],
    imagesAndDescriptions: [
       { image: require("../../assets/images/SyncR1.png"), description: "Home Screen showing the various links to screens" },
       { image: require("../../assets/images/SyncR2.png"), description: "When \"Guess the Song\" is selected, stems from a random song play and the user has to enter the name of the song which they think contains that stem. If true, a success message is displayed" },
@@ -80,7 +80,12 @@ let projects = [{
       { image: require("../../assets/images/SyncR10.png"), description: "If they select a song under the \"A Picture of Heaven\" title it'll." },
       { image: require("../../assets/images/SyncR11.png"), description: "If they select a song under the \"A Picture of Heaven\" title it'll." },
       { image: require("../../assets/images/SyncR12.png"), description: "If they select a song under the \"A Picture of Heaven\" title it'll." },
-      { image: require("../../assets/images/SyncR13.png"), description: "If they select a song under the \"A Picture of Heaven\" title it'll." },
+      { image: require("../../assets/images/S13.png"), description: "If they select a song under the \"A Picture of Heaven\" title it'll." },
+      { image: require("../../assets/images/S14.png"), description: "If they select a song under the \"A Picture of Heaven\" title it'll." },
+      { image: require("../../assets/images/S15.png"), description: "If they select a song under the \"A Picture of Heaven\" title it'll." },
+      { image: require("../../assets/images/S16.png"), description: "If they select a song under the \"A Picture of Heaven\" title it'll." },
+      { image: require("../../assets/images/S17.png"), description: "If they select a song under the \"A Picture of Heaven\" title it'll." },
+      { image: require("../../assets/images/SyncR18.png"), description: "If they select a song under the \"A Picture of Heaven\" title it'll." },
    ]
 },
 
