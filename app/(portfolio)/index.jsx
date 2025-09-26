@@ -11,11 +11,39 @@ import { useProjectContext } from "../(portfolio)/projectcontext";
 import projects from '../(portfolio)/projects';
 
 import { Dimensions } from 'react-native';
-import Animated, { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
+import Animated, { Extrapolation, interpolate, useAnimatedScrollHandler, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
+
+  const { width :screenWidth} = Dimensions.get('window');
+  const ITEM_WIDTH =Platform.OS === "android" ?  screenWidth : 400;
+  const ITEM_SPACING = (screenWidth - ITEM_WIDTH)/2;
 
 const CarouselItem =({item, index, scrollX})=>{
+  const animatedStyle = useAnimatedStyle(() => {
+    const inputRange = [
+      (index - 1) * ITEM_WIDTH,
+      index * ITEM_WIDTH, 
+      (index + 1) * ITEM_WIDTH
+    ]
+
+    const scale = interpolate(scrollX.value, inputRange, [0.9, 1, 0.9], 
+      (
+        Extrapolation.CLAMP
+      )
+    )
+
+    const translateX = interpolate(scrollX.value, inputRange, [-30, 0, 30], (
+      Extrapolation.CLAMP
+    ))
+
+    return {
+      transform: [{scale}, {translateX}]
+    }
+  })
+
+  const AnimatedView = Animated.createAnimatedComponent(ThemedView);
+
   return(
-    <ThemedView style={[styles.projectCard, index % 2 === 0 ? { marginTop: 0 } : { marginTop: 40 }]}>
+    <ThemedView style={[styles.projectCard, index % 2 === 0 ? { marginTop: 0 } : { marginTop: 40 }, animatedStyle]}>
       <Image style={styles.projImage} source={item.image} />
       <ThemedText style={styles.regText}>{item.title}</ThemedText>
       <ThemedText style={styles.regText}>{item.description}</ThemedText>
@@ -24,7 +52,6 @@ const CarouselItem =({item, index, scrollX})=>{
 }
   
 const app = () => {
-  const { width: screenWidth } = Dimensions.get('window');
   const { setSelectedProject } = useProjectContext();
   const scrollX = useSharedValue(0)
   const onScroll = useAnimatedScrollHandler({
@@ -37,7 +64,6 @@ const app = () => {
   const FlatListComponent = isWeb ? FlatList : Animated.FlatList
 
   return (
-    
     <ThemedView style={styles.container}>
       <ScrollView>
         <ThemedView style={styles.overlay} pointerEvents="none" />
@@ -69,29 +95,25 @@ const app = () => {
         </ThemedView>
 
         <ThemedView style={styles.projContainer}>
-          <FlatListComponent 
-                data={projects} renderItem={({ item, index }) => 
-                <Link key={item.title + index} href={item.page} asChild>
-                    <Pressable onPress={() => setSelectedProject(index)}>
-                      <CarouselItem item={item} index={index} scrollX={scrollX} />
-                    </Pressable>
-                </Link> 
-              }
+          <Animated.ScrollView 
                 showsHorizontalScrollIndicator={false}
-                snapToInterval={370}  
+                snapToInterval={ITEM_WIDTH}  
                 decelerationRate={"fast"}
                 bounces={false}
-                contentContainerStyle={{paddingHorizontal: (screenWidth-1000)/2}}
+                contentContainerStyle={{paddingHorizontal: ITEM_SPACING}}
                 onScroll={onScroll}
                 scrollEventThrottle={16}
                 horizontal={true}
-              >                 
-                                            
-               
-          </FlatListComponent>
-        </ThemedView>
-      
-      
+              >                  
+                  {projects.map((item, index) => (
+                   <Link key={item.title + index} href={item.page} asChild>
+                     <Pressable onPress={() => setSelectedProject(index)}>
+                       <CarouselItem item={item} index={index} scrollX={scrollX} />
+                     </Pressable>
+                   </Link>
+                 ))}                                      
+          </Animated.ScrollView>
+        </ThemedView>            
         <ThemedView style={styles.linksRow}>
           <Link href={'https://www.linkedin.com/in/tshepo-mpofu-6b37a3237/'} style={styles.iconLink}>
             <SocialIcons name="linkedin" size={30} style={styles.icon} />
@@ -106,7 +128,7 @@ const app = () => {
           </Link>
         </ThemedView>
 
-        <Link href={'/work'} style={styles.techStackLink} asChild>
+        <Link href={'/techstack'} style={styles.techStackLink} asChild>
           <Pressable style={styles.button}>
             <ThemedText style={styles.buttonText}>Tech Stack</ThemedText>
           </Pressable>
@@ -120,7 +142,6 @@ const app = () => {
         </Marquee>
       
     </ThemedView>
-    
   )
 }
 
@@ -129,7 +150,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     paddingTop: Platform.OS === "android" ? 50 : 0,
-    
+    width: "100%"
   },
   heading: {
     fontFamily: 'ChelaOne',
@@ -208,28 +229,30 @@ const styles = StyleSheet.create({
     height: "100%"
   },
   projectCard: {
-    width: 350,
+    width: Platform.OS === "web" ? 400 : screenWidth,
     height: 500,
-    margin: 10,
-    borderRadius: 20, 
+    margin: Platform.OS === "android" ? 0 : 10,
+    borderRadius: Platform.OS === "android" ? 30 : 20, 
     shadowColor: "white",
     shadowOpacity: 1,
     shadowOffset: {width: 0, height: 4},
     shadowRadius: 10,
-    elevation: 10
+    elevation: 1,
+    borderBottomStartRadius: 8,
+    borderBottomLeftRadius:10,
+    borderBottomRightRadius:10,
   },
   projImage: {
     flex: 1,
-    width: 350,
+    width: Platform.OS === "web" ? 400 : screenWidth,
     borderRadius: 20,
   },
   projContainer: {
-    paddingRight: 10,
-    paddingLeft: 10,
     flexDirection: "row",
     flex: 1,
     alignSelf: "center", 
-    marginBottom: 30
+    marginBottom: 30,
+    width: "100%"
   }
 })
 

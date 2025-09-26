@@ -59,7 +59,25 @@ let projects = [{
       { image: require("../../assets/images/APH5.png"), description: "If the user clicks the play button a random song starts playing" },
       { image: require("../../assets/images/APH6.png"), description: "If they select a song under the \"A Picture of Heaven\" title it'll start playing. The songs will play one after the other until the end. All the buttons like the pause and skip work." },
    ]
-},/*
+},
+{
+   title: "SyncR",
+   image: require('../../assets/images/SyncRLogo.png'),
+   description: "Media Player, Song Guess Game and soon to have an Arcade Game Desktop Application. This App is tailored for my music :)",
+   page: '/projectpage',
+   fullAppDescription: "Media Player, Song Guess Game and soon to have an Arcade Game Desktop Application. This App is tailored for my music :). Written in Java and JavaFX",
+   features: ["Guess the Song Game", "Media Player", "Arcade Game(beta)"],
+   imagesAndDescriptions: [
+      { image: require("../../assets/images/APH1.png"), description: "Home Screen showing the various links to screens" },
+      { image: require("../../assets/images/APH2.png"), description: "When \"Guess the Song\" is selected, stems from a random song play and the user has to enter the name of the song which they think contains that stem. If true, a success message is displayed" },
+      { image: require("../../assets/images/APH3.png"), description: "This is the Arcade Game Home screen. Still under construction as you can see but it will allow the user to select a character they want and play using them" },
+      { image: require("../../assets/images/APH4.png"), description: "When \"Music\" is selected in the Home Screen, the user will see this screen with the song lists and a Media Player" },
+      { image: require("../../assets/images/APH5.png"), description: "If the user clicks the play button a random song starts playing" },
+      { image: require("../../assets/images/APH6.png"), description: "If they select a song under the \"A Picture of Heaven\" title it'll start playing. The songs will play one after the other until the end. All the buttons like the pause and skip work." },
+   ]
+},
+
+/*
 {
    title: "My Virtual Closet",
    image: require('../../assets/images/favicon.png'),
